@@ -1,0 +1,31 @@
+<div class="p-5 text-center bg-light">
+    <h1 class="mb-3">{{mode}} My Books</h1>
+</div>
+<br>
+<form [formGroup]="readingForm" (ngSubmit)="onSubmit()">
+
+    <label for="book-title">Title:</label>
+    <input id="book-title" type="text" formControlName="bookTitle">
+
+    <label for="book-author">Author:</label>
+    <input id="book-author" type="text" formControlName="bookAuthor">
+  
+    <div class="form-group">
+        <label for="readStatus">Status</label>
+        <select class="form-control" id="readStatus" formControlName = 'readStatus'>
+          <option>Read</option>
+          <option>Currently Reading</option>
+          <option>Want to Read</option>
+        </select>
+      </div>
+
+  <p>Complete the form to enable button.</p>
+<button type="submit" [disabled]="!readingForm.valid">Submit</button>
+<br>
+<div>
+  <ul *ngFor ="let student of students let i = index">
+      <li> Title: {{student.bookTitle}}, Author: {{student.bookAuthor}},  Status: {{student.readStatus}} <button (click)="onDelete(student._id)">DELETE</button><button [routerLink]="['/editStudent', student._id]">UPDATE</button></li>
+  </ul>
+</div>
+<br>
+<br>

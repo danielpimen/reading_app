@@ -1,0 +1,39 @@
+<div class="p-5 text-center bg-light">
+    <h1 class="mb-3"> {{mode}} Book Reviews</h1>
+    <h4 class="mb-3">Please complete the form below for book reviews</h4> 
+  </div>
+  <br>
+ <form [formGroup]='bookReview' (ngSubmit) = 'onSubmit()'>
+    <div class="form-group">
+      <label for="genre">Book Genre</label>
+      <input type="text" class="form-control" id="genre" formControlName ='genre'>
+
+    <br>
+
+      <label for="readingLevel">Reading Level</label>
+      <select class="form-control" id="readingLevel" formControlName = 'readingLevel'>
+        <option>Beginner</option>
+        <option>Moderate</option>
+        <option>Advanced</option>
+        <option>Expert</option>
+      </select>
+    </div>
+    <br>
+
+      <label for="favoriteAuthor">Favorite Author: </label>
+      <input id="favoriteAuthor" type="text" formControlName="favoriteAuthor">
+
+    <br>
+    <button type="submit">Submit</button> 
+  </form>
+
+  <br>
+  <br>
+  <h3>Previous Reviews</h3>
+  <div>
+    <ul *ngFor ="let review of reviews let i = index">
+        <li> Genre: {{review.genre}}, Reading Level: {{review.readingLevel}},  Favorite Author: {{review.favoriteAuthor}} <button (click)="onDelete(review._id)">DELETE</button><button [routerLink]="['/editReview', review._id]">UPDATE</button></li>
+    </ul>
+  </div>
+
+  

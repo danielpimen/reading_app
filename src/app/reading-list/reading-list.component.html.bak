@@ -1,0 +1,35 @@
+<div class="p-5 text-center bg-light">
+    <h1 class="mb-3">My Books</h1>
+</div>
+<br>
+<form [formGroup]="readingForm">
+
+    <label for="book-name">Name: </label>
+    <input id="book-name" type="text" formControlName="bookName">
+
+    <label for="book-author">Author: </label>
+    <input id="book-author" type="text" formControlName="bookAuthor">
+  
+    <div class="form-group">
+        <label for="readStatus">Status</label>
+        <select class="form-control" id="readStatus" formControlName = 'readStatus'>
+          <option>Read</option>
+          <option>Currently Reading</option>
+          <option>Want to Read</option>
+        </select>
+      </div>
+      <form [formGroup]="readingForm" (ngSubmit)="onSubmit()">
+          
+  </form>
+  <p>Complete the form to enable button.</p>
+<button type="submit" [disabled]="!readingForm.valid">Submit</button>
+<br>
+<br>
+<br>
+<ol>
+    <li>Later : Stephen King : Read</li>
+    <li>The Whisper Man : Alex North : Currently Reading</li>
+    <li>The Silent Patient : Alex Michaelides : Want to Read</li>
+    </ol>
+<br>
+<button type="submit" >Edit</button>

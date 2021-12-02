@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css"
+
+.emoji {
+    font-family: Segoe UI Emoji, Segoe UI Symbol, Quivira, Symbola;
+  }
+
+  button {
+
+    margin-left :5px }

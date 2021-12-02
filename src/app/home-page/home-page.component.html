@@ -1,0 +1,38 @@
+<div class="p-5 text-center bg-light">
+    <h1 class="mb-3">The Reading App </h1>
+    <h4 class="mb-3">The app for those who love to read</h4> 
+</div>
+<br>
+<br>
+<div class="p-5 text-center bg-light">
+    <ul>
+        <h6>Please see below what features are included in our application!</h6>
+        <li>Discussion Board : Create, Read, Update, and Delete posts</li>
+        <li>Reading List: Create, Read, Update, and Delete reading lists</li>
+        <li>Book Reviews : Create, Read, Update, and Delete book reviews</li>
+        <li>Book Recommendations : Create, Read, Update, and Delete recommendations</li>
+    </ul>
+</div>
+<div class="container">
+        <div class="row">
+          <div class="col-sm">
+                <h5>Current Fiction Best Sellers</h5> 
+                <ul *ngFor ="let seller of sellers let i = index">
+                        <li> Title: {{seller.title}}, Description: {{seller.description}},  Author: {{seller.author}} </li>
+                </ul>
+          </div>
+          <div class="col-sm">
+                <h5>Stephen Kings' Best Sellers</h5> 
+                <ul *ngFor ="let book of books let i = index">
+                        <li> Title: {{book.title}}, Description: {{book.description}},  Link: {{book.link}} </li>
+                </ul>
+          </div>
+          <div class="col-sm">
+                <h5>NonFiction Best Sellers</h5> 
+                <ul *ngFor ="let nonfiction of nonfictions let i = index">
+                        <li> Title: {{nonfiction.title}}, Description: {{nonfiction.description}},  Author {{nonfiction.author}} </li>
+                </ul>
+            
+          </div>
+        </div>
+      </div>

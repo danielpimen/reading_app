@@ -1,0 +1,30 @@
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
+import { Validators } from '@angular/forms';
+import { StudentService } from '../student.service';
+import {ActivatedRoute, ParamMap } from '@angular/router';
+
+@Component({
+  selector: 'app-reading-list',
+  templateUrl: './reading-list.component.html',
+  styleUrls: ['./reading-list.component.css']
+})
+export class ReadingListComponent {
+  readingForm = new FormGroup({
+    bookTitle: new FormControl(''),
+    bookAuthor: new FormControl(''),
+    readStatus: new FormControl(''),
+  });
+  onSubmit() {
+    console.warn(this.readingForm.value);
+    this._myService.addStudents(this.readingForm.value.bookTitle ,this.readingForm.value.bookAuthor, this.readingForm.value.readStatus);
+  }
+
+  constructor(private _myService: StudentService, public route: ActivatedRoute
+    ) { }
+
+  ngOnInit(): void {
+  }
+
+}

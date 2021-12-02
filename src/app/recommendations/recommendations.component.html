@@ -1,0 +1,40 @@
+<div class="p-5 text-center bg-light">
+  <h1 class="mb-3"> {{mode}} Book Recommendation</h1>
+  <h4 class="mb-3">Please add your favorite book to recommend to others</h4> 
+</div>
+<br>
+<form [formGroup]='bookRecommendation' (ngSubmit) = 'onSubmit()'>
+  <div class="form-group">
+    <label for="genre">Book Title</label>
+    <input type="text" class="form-control" id="bookTitle" formControlName ='bookTitle'>
+
+  <br>
+
+    <label for="genre">Author Name</label>
+    <input type="text" class="form-control" id="authorName" formControlName ='authorName'>
+
+  <br>
+    <label for="genre">Your First Name</label>
+    <input type="text" class="form-control" id="firstName" formControlName ='firstName'>
+  <br>
+    <label for="genre">Your Last Name </label>
+    <input type="text" class="form-control" id="lastName" formControlName ='lastName'>
+
+
+  <br>
+  <button type="submit">Submit</button> 
+</div>
+</form>
+
+
+<br>
+<br>
+<h3>Previous Recommendations</h3>
+<div>
+  <ul *ngFor ="let recommendation of recommendations let i = index">
+    <li> Title: {{recommendation.bookTitle}}, Author: {{recommendation.authorName}},  First Name: {{recommendation.firstName}}, Last Name : {{recommendation.lastName}} <button (click)="onDelete(recommendation._id)">DELETE</button><button [routerLink]="['/editRecommendation', recommendation._id]" >UPDATE</button></li>
+  </ul>
+
+</div>
+
+
